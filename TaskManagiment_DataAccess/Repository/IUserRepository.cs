@@ -1,6 +1,12 @@
-﻿using TaskManagiment_Application.Model;
+﻿using TaskManagiment_DataAccess.Model;
 
-namespace TaskManagiment_DataAccess.Repository;
+namespace TaskManagiment_DataAccess.Repository
+{
+    public interface IUserRepository : IBaseRepository<User> 
+    {
+        Task<User?> GetUserByEmailAsync(string email);
+    }
 
-public  interface IUserRepository : IBaseRepository<User> { } 
+}
+
 

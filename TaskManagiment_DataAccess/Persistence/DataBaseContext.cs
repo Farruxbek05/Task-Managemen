@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using TaskManagiment_Application.Model;
-using TaskManagiment_Application.Service;
 using TaskManagiment_Core.Common;
+using TaskManagiment_DataAccess.Claim;
+using TaskManagiment_DataAccess.Model;
 
 namespace TaskManagiment_DataAccess.Persistence
 {

@@ -1,4 +1,4 @@
-﻿namespace TaskManagiment_Application.DTO;
+﻿namespace TaskManagiment_Core.DTO;
 public class CreateTaskAssignment
 {
     public Guid TaskId { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace TaskManagiment_Application.Service
+﻿namespace TaskManagiment_DataAccess.Claim
 {
     public interface IClaimService
     {
@@ -6,5 +6,4 @@
 
         string GetClaim(string key);
     }
-
 }

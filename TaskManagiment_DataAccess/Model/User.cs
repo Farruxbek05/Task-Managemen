@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TaskManagiment_Core.Common;
 
-namespace TaskManagiment_Application.Model
+namespace TaskManagiment_DataAccess.Model
 {
     public class User: BaseEntity, IAuditedEntity
     {
@@ -12,7 +12,8 @@ namespace TaskManagiment_Application.Model
         [Required(ErrorMessage = "Email manzilini kiritish shart.")]
         [EmailAddress(ErrorMessage = "Email manzil noto'g'ri formatda.")]
         public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;    
+        public string Password { get; set; } = string.Empty;  
+        public string Role { get; set; } = string.Empty;    
         public string? CreatedBy { get; set; }
         public DateTime? CreatedOn { get; set; }
         public string? UpdatedBy { get; set; }

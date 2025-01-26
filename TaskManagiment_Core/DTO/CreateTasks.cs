@@ -1,6 +1,6 @@
-﻿using TaskManagiment_Application.Enum;
+﻿using TaskManagiment_Core.Enum;
 
-namespace TaskManagiment_Application.DTO;
+namespace TaskManagiment_Core.DTO;
 public class CreateTasks
 {
     public string Title { get; set; } = string.Empty;

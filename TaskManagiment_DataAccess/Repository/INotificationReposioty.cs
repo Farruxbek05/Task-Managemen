@@ -1,6 +1,6 @@
-﻿using TaskManagiment_Application.Model;
+﻿using TaskManagiment_DataAccess.Model;
 
 namespace TaskManagiment_DataAccess.Repository;
 
-    public interface INotificationReposioty : IBaseRepository<Notification> { }
-   
+public interface INotificationReposioty : IBaseRepository<Notification> { }
+

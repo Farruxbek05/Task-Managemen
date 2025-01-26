@@ -1,5 +1,5 @@
-﻿using TaskManagiment_Application.DTO;
-using TaskManagiment_Application.Model;
+﻿using TaskManagiment_Core.DTO;
+using TaskManagiment_DataAccess.Model;
 
 namespace TaskManagiment_Application.Service
 {

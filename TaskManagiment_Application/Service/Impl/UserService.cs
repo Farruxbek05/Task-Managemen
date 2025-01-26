@@ -1,5 +1,7 @@
-﻿using TaskManagiment_Application.DTO;
-using TaskManagiment_Application.Model;
+﻿using TaskManagiment_Core.DTO;
+using TaskManagiment_DataAccess.Authentication;
+using TaskManagiment_DataAccess.Model;
+using TaskManagiment_DataAccess.Repository;
 
 namespace TaskManagiment_Application.Service.Impl
 {
@@ -21,7 +23,6 @@ namespace TaskManagiment_Application.Service.Impl
         {
             var user = await _users.GetFirstAsync(u => u.Id == id);
 
-
             if (user == null)
                 return null;
 
@@ -30,9 +31,6 @@ namespace TaskManagiment_Application.Service.Impl
                 Email = user.Email,
                 FullName = user.FullName,
                 Id = id,
-                Password = _passwordHasher.Hash(user.Password),
-                TaskAssignments = user.TaskAssignments
-
             };
         }
 
@@ -43,11 +41,8 @@ namespace TaskManagiment_Application.Service.Impl
             {
                 Email = user.Email,
                 FullName = user.FullName,
-                Password = _passwordHasher.Hash(user.pasword),
-                TaskAssignments = user.taskAssignment,
                 Id = user.Id
             }).ToList();
-
         }
 
         public async Task<User> AddUserAsync(CreateUser userForCreationDTO)
@@ -69,11 +64,10 @@ namespace TaskManagiment_Application.Service.Impl
             var res = await _users.AddAsync(user);
             var result = new User
             {
-
                 Email = userForCreationDTO.Email,
                 FullName = userForCreationDTO.FullName,
                 Id = userForCreationDTO.Id,
-                Password = _passwordHasher
+
             };
             await _emailService.SendEmailAsync(user);
 
@@ -82,16 +76,13 @@ namespace TaskManagiment_Application.Service.Impl
 
         public async Task<User> UpdateUserAsync(Guid id, CreateUser userDto)
         {
-
             if (userDto == null)
                 throw new ArgumentNullException(nameof(userDto), "UserDTO cannot be null.");
-
 
             var user = await _users.GetFirstAsync(u => u.Id == id);
 
             if (user == null)
                 return null;
-
 
             user.Email = userDto.Email;
             user.FullName = userDto.FullName;
@@ -102,7 +93,6 @@ namespace TaskManagiment_Application.Service.Impl
             await _users.UpdateAsync(user);
             return user;
         }
-
 
         public async Task<bool> DeleteUserAsync(Guid id)
         {
@@ -116,17 +106,13 @@ namespace TaskManagiment_Application.Service.Impl
         }
         public async Task<User> GetUserByEmailAsync(string email)
         {
-
             return await _users.GetUserByEmailAsync(email);
         }
 
         public async Task<bool> VerifyPassword(User user, string password)
         {
-
             return await Task.Run(() => user.Password == password);
         }
-
-
     }
-}
+
 }

@@ -7,11 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="ApiResult.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TaskManagiment_Core\TaskManagiment_Core.csproj" />
+    <ProjectReference Include="..\TaskManagiment_DataAccess\TaskManagiment_DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

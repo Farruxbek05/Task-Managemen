@@ -1,4 +1,5 @@
-﻿using TaskManagiment_Application.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using TaskManagiment_DataAccess.Model;
 using TaskManagiment_DataAccess.Persistence;
 
 namespace TaskManagiment_DataAccess.Repository.Impl
@@ -10,5 +11,6 @@ namespace TaskManagiment_DataAccess.Repository.Impl
         {
             _dataBaseContext = dataBaseContext;
         }
+        public async Task<User?> GetUserByEmailAsync(string email) => await _dataBaseContext.AirwaysUser.FirstOrDefaultAsync(u => u.Email == email);
     }
 }

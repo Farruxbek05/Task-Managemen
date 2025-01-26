@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace TaskManagiment_DataAccess.Persistence
 {

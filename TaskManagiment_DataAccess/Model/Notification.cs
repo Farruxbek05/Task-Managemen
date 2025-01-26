@@ -1,16 +1,18 @@
 ﻿using TaskManagiment_Core.Common;
 
-namespace TaskManagiment_Application.Model
+namespace TaskManagiment_DataAccess.Model
 {
-    public class TaskAssignment: BaseEntity, IAuditedEntity
+    public class Notification:BaseEntity, IAuditedEntity
     {
-        public Guid TaskId { get; set; } 
-        public Task Task { get; set; } = null!;
+        public string Message { get; set; } = string.Empty;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public Guid UserId { get; set; } 
         public User User { get; set; } = null!;
+        public bool IsRead { get; set; }
         public string? CreatedBy { get; set; }
         public DateTime? CreatedOn { get; set; }
         public string? UpdatedBy { get; set; }
         public DateTime? UpdatedOn { get; set; }
     }
+
 }

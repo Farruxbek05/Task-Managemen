@@ -1,7 +1,10 @@
-﻿using TaskManagiment_Application.Model;
+﻿using TaskManagiment_DataAccess.Model;
 
-namespace TaskManagiment_DataAccess.Repository;
+namespace TaskManagiment_DataAccess.Repository
+{
+public interface IProjectReposioty : IBaseRepository<Project> { }
 
-    public interface IProjectReposioty : IBaseRepository<Project> { }
-   
+}
+
+
 
