@@ -1,4 +1,4 @@
-﻿namespace TaskManagiment_DataAccess.Claim
+﻿namespace TaskManagiment_DataAccess.Claims
 {
     public interface IClaimService
     {

@@ -58,7 +58,8 @@ namespace TaskManagiment_Application.Service.Impl
                 FullName = userForCreationDTO.FullName,
                 Id = userForCreationDTO.Id,
                 Password = _passwordHasher.Encrypt(
-                 password: userForCreationDTO.Password
+                 password: userForCreationDTO.Password,
+                    salt: randomSalt
                   ),
             };
             var res = await _users.AddAsync(user);
@@ -88,7 +89,8 @@ namespace TaskManagiment_Application.Service.Impl
             user.FullName = userDto.FullName;
             user.Id = id;
             user.Password = _passwordHasher.Encrypt(
-                    password: userDto.Password
+                    password: userDto.Password,
+                    salt: user.Password.Split('.').Last()
                     );
             await _users.UpdateAsync(user);
             return user;

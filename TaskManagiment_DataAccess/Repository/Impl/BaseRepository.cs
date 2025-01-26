@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using TaskManagiment_Core.Common;
+using TaskManagiment_Core.Exciption;
 using TaskManagiment_DataAccess.Persistence;
 
 namespace TaskManagiment_DataAccess.Repository.Impl

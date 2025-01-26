@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using TaskManagiment_Core.Common;
-using TaskManagiment_DataAccess.Claim;
+using TaskManagiment_DataAccess.Claims;
 using TaskManagiment_DataAccess.Model;
 
 namespace TaskManagiment_DataAccess.Persistence

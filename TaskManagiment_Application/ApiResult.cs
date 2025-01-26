@@ -30,7 +30,7 @@ namespace TaskManagiment_Application
         public static ApiResult Success(string successMessage = null) => new ApiResult(true, successMessage, null);
 
         // Create a failure result with no message
-        public static ApiResult Failure() => new ApiResult(false, string.Empty, Error.None);
+        public static ApiResult Failure(Common.Error error) => new ApiResult(false, string.Empty, Error.None);
 
         // Create a failure result with an error
         public static ApiResult Failure(Error error) => new ApiResult(false, string.Empty, error);

@@ -1,8 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using TaskManagiment_Application.Service.Impl;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using TaskManagiment_Application.MappingProfiles;
 using TaskManagiment_Application.Service;
-using TaskManagiment_DataAccess.Claim;
-using Microsoft.AspNetCore.Hosting;
+using TaskManagiment_Application.Service.Impl;
+using TaskManagiment_DataAccess.Claims;
 
 namespace TaskManagiment_Application
 {

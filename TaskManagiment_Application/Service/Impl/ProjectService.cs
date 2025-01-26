@@ -8,9 +8,9 @@ namespace TaskManagiment_Application.Service.Impl
     public class ProjectService : IProjectservice
     {
         private readonly IMapper _mapper;
-        private readonly IProjectReposioty _projectrepository;
+        private readonly IProjectRepository _projectrepository;
 
-        public ProjectService(IProjectReposioty
+        public ProjectService(IProjectRepository
             projectRepository,
             IMapper mapper)
         {
@@ -38,17 +38,10 @@ namespace TaskManagiment_Application.Service.Impl
             {
                 Id = result.Id,
                 Name = result.Name,
-                Tasks = result.Tasks,
-            
+                Description = result.Description,
+              
+
             };
-        }
-
-        public async Task<IEnumerable<Project>> GetAllByListIdAsync(Guid id, CancellationToken? cancellationToken)
-        {
-            var todoItems = await _projectrepository.GetAllAsync(ti => ti.Id == id);
-
-
-            return (IEnumerable<Project>)_mapper.Map<Project>(todoItems);
         }
 
         public async Task<Project> UpdateAsync(Guid id, CreateProject updateTodoItemModel, CancellationToken cancellationToken = default)
@@ -72,6 +65,14 @@ namespace TaskManagiment_Application.Service.Impl
 
             await _projectrepository.DeleteAsync(user);
             return true;
+        }
+
+        public async Task<IEnumerable<Project>> GetAllByListIdAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            var todoItems = await _projectrepository.GetAllAsync(ti => ti.Id == id);
+
+
+            return (IEnumerable<Project>)_mapper.Map<Project>(todoItems);
         }
     }
 }

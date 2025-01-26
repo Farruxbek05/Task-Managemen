@@ -18,10 +18,10 @@ namespace TaskManagement_Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<ApiResult<List<Project>>>> GetAll()
+        public async Task<ActionResult<ApiResult<List<Tasks>>>> GetAll()
         {
             var result = await _taskService.GetAllAsync();
-            var response = ApiResult<List<Project>>.Success(result);
+            var response = ApiResult<List<Tasks>>.Success(result);
             return Ok(response);
         }
         [HttpPost]
@@ -29,15 +29,15 @@ namespace TaskManagement_Api.Controllers
         {
             var result = await _taskService.CreateAsync(createUserModel);
 
-            if (result == null) return BadRequest(ApiResult<Project>.Failure());
+            if (result == null) return BadRequest(ApiResult<Tasks>.Failure());
 
-            return Ok(ApiResult<Project>.Success(result));
+            return Ok(ApiResult<Tasks>.Success(result));
         }
 
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> UpdateAsync(Guid id, CreateTasks updateUserModel)
         {
-            return Ok(ApiResult<Project>.Success(
+            return Ok(ApiResult<Tasks>.Success(
                 await _taskService.UpdateAsync(id, updateUserModel)));
         }
 

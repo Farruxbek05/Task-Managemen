@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace TaskManagiment_DataAccess.Claim
+namespace TaskManagiment_DataAccess.Claims
 {
     public class ClaimService : IClaimService
     {

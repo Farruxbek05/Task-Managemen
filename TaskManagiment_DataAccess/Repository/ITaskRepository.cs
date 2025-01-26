@@ -2,7 +2,7 @@
 
 namespace TaskManagiment_DataAccess.Repository;
 
-public interface ITaskRepository : IBaseRepository<Project> { }
+public interface ITaskRepository : IBaseRepository<Tasks> { }
 
 
 

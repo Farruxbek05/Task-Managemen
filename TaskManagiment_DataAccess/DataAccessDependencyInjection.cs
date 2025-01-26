@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;    
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TaskManagiment_DataAccess.Persistence;
@@ -27,7 +26,7 @@ namespace TaskManagiment_DataAccess
 
         private static void AddDatabase(this IServiceCollection services, IConfiguration configuration)
         {
-            var databaseConfig = configuration.GetSection("Database").Get<DatabaseConfiguration>();
+            var databaseConfig = configuration.GetSection("Database").Get<DatabaseConfiguration>;
 
             if (databaseConfig.UseInMemoryDatabase)
             {
